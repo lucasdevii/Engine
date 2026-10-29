@@ -1,0 +1,11 @@
+# ninja log v5
+0	64	1793293944521047321	CMakeFiles/MyEngine.dir/src/main.cpp.o	839855aafdb33caf
+1	269	1793293944725287948	CMakeFiles/MyEngine.dir/src/window.cpp.o	92a0b2dc16a099e2
+269	341	1793293944796882520	MyEngine	955ab53db0de24b
+2	373	1793294398112770927	CMakeFiles/MyEngine.dir/src/window.cpp.o	92a0b2dc16a099e2
+373	445	1793294398184413940	MyEngine	955ab53db0de24b
+1	60	1793296703319306128	CMakeFiles/MyEngine.dir/src/main.cpp.o	839855aafdb33caf
+1	351	1793296703610006373	CMakeFiles/MyEngine.dir/src/window.cpp.o	92a0b2dc16a099e2
+351	425	1793296703684205923	MyEngine	955ab53db0de24b
+1	73	1793296727264259678	CMakeFiles/MyEngine.dir/src/main.cpp.o	839855aafdb33caf
+73	148	1793296727338931436	MyEngine	955ab53db0de24b
