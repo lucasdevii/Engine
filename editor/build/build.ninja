@@ -51,12 +51,12 @@ build CMakeFiles/MyEngine.dir/src/main.cpp.o: CXX_COMPILER__MyEngine_unscanned_ 
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/src
 
-build CMakeFiles/MyEngine.dir/src/window.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/src/window.cpp || cmake_object_order_depends_target_MyEngine
-  DEP_FILE = CMakeFiles/MyEngine.dir/src/window.cpp.o.d
+build CMakeFiles/MyEngine.dir/src/window/window.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/src/window/window.cpp || cmake_object_order_depends_target_MyEngine
+  DEP_FILE = CMakeFiles/MyEngine.dir/src/window/window.cpp.o.d
   FLAGS = -std=gnu++20
   INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
   OBJECT_DIR = CMakeFiles/MyEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/src/window
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/imgui.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o.d
@@ -108,7 +108,7 @@ build CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: CX
 #############################################
 # Link the executable MyEngine
 
-build MyEngine: CXX_EXECUTABLE_LINKER__MyEngine_ CMakeFiles/MyEngine.dir/src/main.cpp.o CMakeFiles/MyEngine.dir/src/window.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_draw.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_tables.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_widgets.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_sdl3.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o | /usr/local/lib/libSDL3.so.0.5.0
+build MyEngine: CXX_EXECUTABLE_LINKER__MyEngine_ CMakeFiles/MyEngine.dir/src/main.cpp.o CMakeFiles/MyEngine.dir/src/window/window.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_draw.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_tables.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_widgets.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_sdl3.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o | /usr/local/lib/libSDL3.so.0.5.0
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libSDL3.so.0.5.0
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   POST_BUILD = :

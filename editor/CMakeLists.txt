@@ -10,7 +10,7 @@ find_package(SDL3 CONFIG REQUIRED)
 
 add_executable(MyEngine
     src/main.cpp
-    src/window.cpp
+    src/window/window.cpp
 )
 
 target_link_libraries(MyEngine PRIVATE SDL3::SDL3)
