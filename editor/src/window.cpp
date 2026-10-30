@@ -9,6 +9,7 @@
 
 Window::Window(int height, int width, const char* name)
 {
+    
     if (!SDL_Init(SDL_INIT_VIDEO)) {
         throw std::runtime_error(SDL_GetError());
     }

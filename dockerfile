@@ -1,3 +1,4 @@
+
 FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -40,6 +41,8 @@ RUN git clone --depth 1 \
         -DCMAKE_BUILD_TYPE=Release \
         -DSDL_SHARED=ON \
         -DSDL_STATIC=OFF \
+        -DSDL_X11=ON \
+        -DSDL_WAYLAND=ON \
         -DSDL_TESTS=OFF \
         -DSDL_EXAMPLES=OFF \
         -DSDL_X11_XTEST=OFF \
