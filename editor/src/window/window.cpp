@@ -1,7 +1,8 @@
-#include "./data/window.hpp"
+#include "../../data/window.hpp"
 
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
+
 #include <stdexcept>
 #include <string>
 #include <exception>
