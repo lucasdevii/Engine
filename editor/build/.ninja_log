@@ -12,3 +12,6 @@
 0	35	1793380456737942911	build.ninja	94dec7550ce0c662
 2	432	1793380457173725660	CMakeFiles/MyEngine.dir/src/window/window.cpp.o	25bdfadda53af29c
 432	545	1793380457285894006	MyEngine	23f62c18831b53d5
+2	317	1793380577071732993	CMakeFiles/MyEngine.dir/src/window/window.cpp.o	25bdfadda53af29c
+2	49	1793380593225622925	CMakeFiles/MyEngine.dir/src/main.cpp.o	1026fdb889c9b694
+49	132	1793380593307797197	MyEngine	23f62c18831b53d5

@@ -1,4 +1,4 @@
-#include "../data/window.hpp"
+#include "./window/window.hpp"
 
 int main(int argc, char* argv[]){
     int window_height = 600;
