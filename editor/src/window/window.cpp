@@ -10,23 +10,88 @@
 
 Window::Window(int height, int width, const char* name)
 {
-    
-    if (!SDL_Init(SDL_INIT_VIDEO)) {
+    if (!SDL_Init(SDL_INIT_VIDEO))
+    {
         throw std::runtime_error(SDL_GetError());
     }
+
+    SDL_GL_SetAttribute(
+        SDL_GL_CONTEXT_MAJOR_VERSION, 3
+    );
+
+    SDL_GL_SetAttribute(
+        SDL_GL_CONTEXT_MINOR_VERSION, 3
+    );
+
+    SDL_GL_SetAttribute(
+        SDL_GL_CONTEXT_PROFILE_MASK,
+        SDL_GL_CONTEXT_PROFILE_CORE
+    );
+
+    SDL_GL_SetAttribute(
+        SDL_GL_DOUBLEBUFFER, 1
+    );
 
     this->window = SDL_CreateWindow(
         name,
         width,
         height,
-        0
+        SDL_WINDOW_OPENGL
     );
 
-    if (this->window == nullptr) {
+    if (!this->window)
+    {
         std::string error = SDL_GetError();
+
         SDL_Quit();
+
         throw std::runtime_error(error);
     }
+
+    // Criar o contexto OpenGL
+    this->context = SDL_GL_CreateContext(
+        this->window
+    );
+
+    if (!this->context)
+    {
+        std::string error = SDL_GetError();
+
+        SDL_DestroyWindow(this->window);
+        this->window = nullptr;
+
+        SDL_Quit();
+
+        throw std::runtime_error(error);
+    }
+
+    // Carregar as funções OpenGL
+    if (!gladLoadGL(
+        (GLADloadfunc)SDL_GL_GetProcAddress))
+    {
+        SDL_GL_DestroyContext(this->context);
+        this->context = nullptr;
+
+        SDL_DestroyWindow(this->window);
+        this->window = nullptr;
+
+        SDL_Quit();
+
+        throw std::runtime_error(
+            "Falha ao carregar OpenGL"
+        );
+    }
+
+    // Configurar a área de renderização
+    glViewport(0, 0, width, height);
+
+    // Configurar a cor de fundo
+    glClearColor(
+        0.1f,
+        0.1f,
+        0.15f,
+        1.0f
+    );
 }
 
 int Window::Open()
@@ -46,7 +111,13 @@ int Window::Open()
                 }
             }
 
-            SDL_Delay(16);
+            // Limpar a tela
+            glClear(GL_COLOR_BUFFER_BIT);
+            
+            // Apresentar o resultado
+            SDL_GL_SwapWindow(window);
+            
+            SDL_Delay(this->max_fps / 1000);
         }
     }
     catch (const std::exception& error)
@@ -60,8 +131,16 @@ int Window::Open()
 
 Window::~Window()
 {
-    if (window != nullptr) {
-        SDL_DestroyWindow(window);
+    if (this->context != nullptr)
+    {
+        SDL_GL_DestroyContext(this->context);
+        this->context = nullptr;
+    }
+
+    if (this->window != nullptr)
+    {
+        SDL_DestroyWindow(this->window);
+        this->window = nullptr;
     }
 
     SDL_Quit();

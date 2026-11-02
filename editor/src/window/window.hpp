@@ -2,14 +2,23 @@
 
 #include <SDL3/SDL.h>
 
-class Window {
-    public:
-        SDL_Window* window = nullptr;
-        bool running = false;
+#pragma once
 
-        Window(int height, int width, const char* name);
-        int Open();
+#include <SDL3/SDL.h>
 
-        ~Window();
+class Window
+{
+private:
+    SDL_Window* window = nullptr;
+    SDL_GLContext context = nullptr;
 
+    bool running = false;
+
+public:
+    int max_fps = 60;
+    Window(int height, int width, const char* name);
+
+    int Open();
+
+    ~Window();
 };
