@@ -36,67 +36,97 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /workspace/editor/build/
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Order-only phony target for glad
+
+build cmake_object_order_depends_target_glad: phony || CMakeFiles/glad.dir
+
+build CMakeFiles/glad.dir/external/glad/src/gl.c.o: C_COMPILER__glad_unscanned_ /workspace/editor/external/glad/src/gl.c || cmake_object_order_depends_target_glad
+  DEP_FILE = CMakeFiles/glad.dir/external/glad/src/gl.c.o.d
+  INCLUDES = -I/workspace/editor/external/glad/include
+  OBJECT_DIR = CMakeFiles/glad.dir
+  OBJECT_FILE_DIR = CMakeFiles/glad.dir/external/glad/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Link the static library libglad.a
+
+build libglad.a: C_STATIC_LIBRARY_LINKER__glad_ CMakeFiles/glad.dir/external/glad/src/gl.c.o
+  OBJECT_DIR = CMakeFiles/glad.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libglad.a
+  TARGET_PDB = glad.a.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target MyEngine
 
 
 #############################################
 # Order-only phony target for MyEngine
 
-build cmake_object_order_depends_target_MyEngine: phony || CMakeFiles/MyEngine.dir
+build cmake_object_order_depends_target_MyEngine: phony || cmake_object_order_depends_target_glad
 
 build CMakeFiles/MyEngine.dir/src/main.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/src/main.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/src/main.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/src
 
 build CMakeFiles/MyEngine.dir/src/window/window.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/src/window/window.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/src/window/window.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/src/window
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/imgui.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/vendor/imgui
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/imgui_draw.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/imgui_draw.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/imgui_draw.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/vendor/imgui
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/imgui_tables.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/imgui_tables.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/imgui_tables.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/vendor/imgui
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/imgui_widgets.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/imgui_widgets.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/vendor/imgui
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_sdl3.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/backends/imgui_impl_sdl3.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_sdl3.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/vendor/imgui/backends
 
 build CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: CXX_COMPILER__MyEngine_unscanned_ /workspace/editor/vendor/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_MyEngine
   DEP_FILE = CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o.d
   FLAGS = -std=gnu++20
-  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends
+  INCLUDES = -I/workspace/editor/vendor/imgui -I/workspace/editor/vendor/imgui/backends -I/workspace/editor/external/glad/include
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/MyEngine.dir/vendor/imgui/backends
 
@@ -108,8 +138,8 @@ build CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: CX
 #############################################
 # Link the executable MyEngine
 
-build MyEngine: CXX_EXECUTABLE_LINKER__MyEngine_ CMakeFiles/MyEngine.dir/src/main.cpp.o CMakeFiles/MyEngine.dir/src/window/window.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_draw.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_tables.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_widgets.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_sdl3.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o | /usr/local/lib/libSDL3.so.0.5.0
-  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libSDL3.so.0.5.0
+build MyEngine: CXX_EXECUTABLE_LINKER__MyEngine_ CMakeFiles/MyEngine.dir/src/main.cpp.o CMakeFiles/MyEngine.dir/src/window/window.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_draw.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_tables.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/imgui_widgets.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_sdl3.cpp.o CMakeFiles/MyEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o | /usr/local/lib/libSDL3.so.0.5.0 libglad.a || libglad.a
+  LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libSDL3.so.0.5.0  libglad.a
   OBJECT_DIR = CMakeFiles/MyEngine.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -142,6 +172,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build glad: phony libglad.a
+
 # =============================================================================
 # Folder targets.
 
@@ -150,7 +182,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /workspace/editor/build
 
-build all: phony MyEngine
+build all: phony libglad.a MyEngine
 
 # =============================================================================
 # Built-in targets
@@ -159,14 +191,14 @@ build all: phony MyEngine
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /usr/local/lib/cmake/SDL3/SDL3Config.cmake /usr/local/lib/cmake/SDL3/SDL3ConfigVersion.cmake /usr/local/lib/cmake/SDL3/SDL3headersTargets.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FeatureSummary.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /workspace/editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /usr/local/lib/cmake/SDL3/SDL3Config.cmake /usr/local/lib/cmake/SDL3/SDL3ConfigVersion.cmake /usr/local/lib/cmake/SDL3/SDL3headersTargets.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FeatureSummary.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /workspace/editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /usr/local/lib/cmake/SDL3/SDL3Config.cmake /usr/local/lib/cmake/SDL3/SDL3ConfigVersion.cmake /usr/local/lib/cmake/SDL3/SDL3headersTargets.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FeatureSummary.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /workspace/editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /usr/local/lib/cmake/SDL3/SDL3Config.cmake /usr/local/lib/cmake/SDL3/SDL3ConfigVersion.cmake /usr/local/lib/cmake/SDL3/SDL3headersTargets.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3sharedTargets.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets-release.cmake /usr/local/lib/cmake/SDL3/SDL3testTargets.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FeatureSummary.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /workspace/editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################
