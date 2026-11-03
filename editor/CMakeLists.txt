@@ -24,6 +24,7 @@ target_include_directories(glad PUBLIC
 add_executable(MyEngine
     src/main.cpp
     src/window/window.cpp
+    src/render/panels/menu.cpp
 )
 
 target_link_libraries(MyEngine PRIVATE
