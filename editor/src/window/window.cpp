@@ -1,8 +1,11 @@
-#include "./window.hpp"
-
 #include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
 #include <glad/gl.h>
+#include <imgui.h>
+#include <imgui_impl_opengl3.h>
+#include <imgui_impl_sdl3.h>
+
+#include "./window.hpp"
+#include "../render/panels/menu.hpp"
 
 #include <stdexcept>
 #include <string>
@@ -93,38 +96,61 @@ Window::Window(int height, int width, const char* name)
         0.15f,
         1.0f
     );
+
+    //Carrega funções do imgui
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+
+    ImGui_ImplSDL3_InitForOpenGL(
+        this->window,
+        this->context
+    );
+
+    ImGui_ImplOpenGL3_Init("#version 330");
 }
+
 
 int Window::Open()
 {
-    try
-    {
-        this->running = true;
-        SDL_Event event;
+    Menu menu_screen;
 
-        while (this->running)
+    this->running = true;
+    SDL_Event event;
+
+    while (this->running)
+    {
+        while (SDL_PollEvent(&event))
         {
-            while (SDL_PollEvent(&event))
-            {
-                if (event.type == SDL_EVENT_QUIT)
-                {
-                    this->running = false;
-                }
-            }
+            ImGui_ImplSDL3_ProcessEvent(&event);
 
-            // Limpar a tela
-            glClear(GL_COLOR_BUFFER_BIT);
-            
-            // Apresentar o resultado
-            SDL_GL_SwapWindow(window);
-            
-            SDL_Delay(this->max_fps / 1000);
+            if (event.type == SDL_EVENT_QUIT)
+            {
+                this->running = false;
+            }
         }
-    }
-    catch (const std::exception& error)
-    {
-        std::cerr << "Erro: " << error.what() << '\n';
-        return 1;
+
+        // Limpar primeiro
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        // Iniciar novo frame do ImGui
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
+        ImGui::NewFrame();
+
+        // Construir a interface
+        menu_screen.Draw();
+
+        // Renderizar a interface
+        ImGui::Render();
+
+        ImGui_ImplOpenGL3_RenderDrawData(
+            ImGui::GetDrawData()
+        );
+
+        // Apresentar o frame
+        SDL_GL_SwapWindow(this->window);
+
+        SDL_Delay(16);
     }
 
     return 0;
@@ -132,6 +158,10 @@ int Window::Open()
 
 Window::~Window()
 {
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplSDL3_Shutdown();
+    ImGui::DestroyContext();
+
     if (this->context != nullptr)
     {
         SDL_GL_DestroyContext(this->context);

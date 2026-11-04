@@ -1,4 +1,4 @@
 class Menu{
     public:
-        Draw();
-}
+        void Draw();
+};
